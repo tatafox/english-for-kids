@@ -1,0 +1,478 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-image: url(../assets/img/pattern.png);
+}
+
+.wrapper,
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.disabled {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  border: 0;
+  white-space: nowrap;
+
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.errors-span {
+  text-align: center;
+  width: 100%;
+  font-size: 26px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+#star {
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  width: 100%;
+  height: 60px;
+}
+
+.star {
+  width: 60px;
+}
+
+.cards {
+  padding-bottom: 40px;
+}
+
+.cards__item {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.26), 0 2px 5px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+  margin: 10px auto;
+  background-color: #DCFAFF;
+  transition: all 0.3s ease-in;
+  position: relative;
+  width: 300px;
+  height: 320px;
+}
+
+.cards__item:hover {
+  box-shadow: -1px 3px 21px #676767;
+  background-color: rgb(252, 252, 255);
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+.cards__title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgb(66, 66, 66);
+  border-top: 3px solid #15B2D6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Fredoka One', cursive;
+  color: #02749D;
+  letter-spacing: 1px;
+}
+
+.header {
+  border-bottom: 3px solid #15B2D6;
+  background-color: #DCFAFF;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  border-top: 1px solid #15B2D6;
+  background-color: white;
+}
+
+.checkbox__knobs,
+.checkbox__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.switch__button {
+  border-radius: 100px;
+  position: relative;
+  top: 50%;
+  width: 112px;
+  height: 36px;
+  overflow: hidden;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.checkbox__knobs {
+  z-index: 2;
+}
+
+.checkbox__layer {
+  width: 100%;
+  background-color: white;
+  box-shadow: inset 0 2px 10px 1px rgba(0, 0, 0, .1), inset 0 0 0 60px rgba(0, 0, 0, .03), 0 1px rgba(255, 255, 255, .08);
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+#switch__button .checkbox__knobs:before {
+  content: 'TRAIN';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 45px;
+  height: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: #15B2D6;
+  border-radius: 100px;
+  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#switch__button .checkbox:checked+.checkbox__knobs:before {
+  content: 'GAME';
+  left: 55px;
+  background-color: #F97304;
+}
+
+
+
+#switch__button .checkbox__knobs,
+#switch__button .checkbox__knobs:before,
+#switch__button .layer {
+  transition: 0.3s ease all;
+}
+
+.game__start-btn_disabled {
+  display: none;
+}
+
+#game__start-btn {
+  background-color: #F97304;
+  border: none;
+  border-radius: 50px;
+  transition: 1s ease all;
+  outline: none;
+  cursor: pointer;
+}
+
+#game__start-btn>span {
+  color: white;
+  font-size: 20px;
+  line-height: 35px;
+  padding: 10px;
+}
+
+#game__start-btn>img {
+  margin: 0;
+  color: white;
+  padding: 10px;
+}
+
+.flip-button {
+  border: none;
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  top: 220px;
+  left: 135px;
+  outline: none;
+  cursor: pointer;
+  border: 3px solid #15B2D6;
+}
+
+.flip-button>img {
+  width: 30px;
+  pointer-events: none;
+  margin: 5px auto;
+}
+
+.cards__item {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.cards__item.flipped {
+  transform: rotateY(180deg);
+}
+
+
+
+.cards__item .cards__front,
+.cards__item .cards__back {
+  backface-visibility: hidden;
+}
+
+.cards__item .cards__back {
+  top: 110px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: fixed;
+  font-size: 28px;
+}
+
+.cards__item .cards__back {
+  transform: rotateY(180deg);
+}
+
+
+
+/* burger-menu */
+#burger__toggle {
+  opacity: 0;
+}
+
+#burger__toggle:checked~.burger__btn>span {
+  transform: rotate(45deg);
+}
+
+#burger__toggle:checked~.burger__btn>span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#burger__toggle:checked~.burger__btn>span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.burger__btn {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 20px;
+  left: 20px;
+  margin-top: -15px;
+
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.burger__btn>span,
+.burger__btn>span::before,
+.burger__btn>span::after {
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  height: 3px;
+
+  background-color: #02749D;
+
+  transition-duration: .25s;
+}
+
+.burger__btn>span::before {
+  content: '';
+  top: -8px;
+}
+
+.burger__btn>span::after {
+  content: '';
+  top: 8px;
+}
+
+
+.menu__list {
+  z-index: 999;
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 calc((100% - 1200px) / (-2));
+  padding: 50px;
+  padding-top: 150px;
+  height: 100%;
+
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+
+}
+
+.header__burger input:checked~nav>ul {
+  transform: none;
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+
+  width: 100%;
+
+  color: #333;
+
+  font-size: 20px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+
+  text-decoration: none;
+
+  transition-duration: .25s;
+}
+
+.menu__item_active {
+  color: #F97304;
+  font-weight: 500;
+
+}
+
+.menu__item:hover {
+  background-color: #CFD8DC;
+  cursor: pointer;
+}
+
+.burger__overlay {
+  width: 0;
+  height: 0;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(41, 41, 41, 0.6);
+  transition: .2s ease-out;
+  z-index: 998;
+}
+
+.burger__overlay_visible {
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+.body_lock {
+  overflow: hidden;
+}
+
+.cards__item_disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.cards__item_game {
+  background-color: #fffcfa;
+  border-color: #F97304;
+  color: #F97304;
+}
+
+.cards__item_main-game {
+  background-color: #fffcfa;
+}
+
+.cards__item_game .burger span,
+.cards__item_game span::before,
+.cards__item_game span::after {
+  background-color: #F97304;
+}
+
+.cards__item_game h1 {
+  color: #F97304;
+}
+
+.cards__item_game img {
+  margin-top: 35px;
+  transition: .2s ease-out;
+}
+
+
+@media all and (max-width: 1279px) {
+
+  .wrapper,
+  .cards {
+    max-width: 740px;
+  }
+
+  .menu__list {
+    margin: -100px 0 0 calc((100% - 740px) / (-2));
+  }
+}
+
+@media all and (max-width: 767px) {
+
+  .wrapper,
+  .cards {
+    max-width: 300px;
+  }
+
+  .menu__list {
+    margin: -100px 0 0 calc((100% - 300px) / (-2));
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  #game__start-btn>img {
+    width: 20px;
+    padding: 4px;
+  }
+
+  #game__start-btn>span {
+    font-size: 16px;
+    line-height: 30px;
+    padding: 8px;
+  }
+
+  .menu__item {
+    padding: 5px 24px;
+    font-size: 18px;
+  }
+
+
+  #game__start-btn {
+    order: 1;
+    margin-bottom: 8px;
+  }
+
+  .switch__button {
+    margin-bottom: 8px;
+  }
+
+  footer>span {
+    font-size: 15px;
+    max-width: 88px;
+    text-align: center;
+  }
+}

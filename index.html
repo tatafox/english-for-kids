@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+<title>English for kids</title>
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper">
+
+      <div class="header__burger burger">
+        <input id="burger__toggle" class="burger__cls" type="checkbox" />
+        <label class="burger__btn" for="burger__toggle">
+          <span></span>
+        </label> 
+        <div class="burger__overlay burger__cls"></div>
+          <nav class="menu">
+              <ul class="menu__list">
+                  <li class="menu__item burger__cls menu__item_active">Main page</li>
+                  <li class="menu__item burger__cls">Clothes</li>
+                  <li class="menu__item burger__cls">Farm animals</li>
+                  <li class="menu__item burger__cls">Food</li>
+                  <li class="menu__item burger__cls">Forest animals</li>
+                  <li class="menu__item burger__cls">Fruits</li>
+                  <li class="menu__item burger__cls">Pets</li>
+                  <li class="menu__item burger__cls">Toys</li>
+                  <li class="menu__item burger__cls">Vegetables</li>
+              </ul>
+          </nav>
+        </div>
+      <h1 class="title">
+          English for kids
+      </h1>
+      <button class="game__start-btn_disabled" id="game__start-btn">
+        <span>Start game</span>
+      </button>
+      <div class="switch__button" id="switch__button">
+        <input type="checkbox" class="checkbox" id="game__checkbox">
+        <div class="checkbox__knobs"></div>
+        <div class="checkbox__layer">
+        </div>
+      </div>
+    </div>
+  </header>  
+  <main>
+    <div class="wrapper">
+      <div id="star">
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="cards ">
+        <div class="category cards__item">
+            <div class="cards__img">
+              <img src="./assets/img/clothes.png" alt="clothes">
+            </div>
+            <div class="cards__title">
+              <p>Clothes</p>
+            </div>
+        </div>
+        <div class="category cards__item">
+          <div class="cards__img">
+            <img src="./assets/img/farm animals.png" alt="farm animals">
+          </div>
+          <div class="cards__title">
+            <p>Farm animals</p>
+          </div>
+        </div>
+        <div class="category cards__item">
+          <div class="cards__img">
+            <img src="./assets/img/food.png" alt="food">
+          </div>
+          <div class="cards__title">
+            <p>Food</p>
+          </div>
+        </div>
+        <div class="category cards__item">
+          <div class="cards__img">
+            <img src="./assets/img/forest animals.png" alt="forest animals">
+          </div>
+          <div class="cards__title">
+            <p>Forest animals</p>
+          </div>
+        </div>        
+        <div class="category cards__item">
+          <div class="cards__img">
+            <img src="./assets/img/Fruits.png" alt="fruits">
+          </div>
+          <div class="cards__title">
+            <p>Fruits</p>
+          </div>
+        </div>
+        <div class="category cards__item">
+          <div class="cards__img">
+            <img src="./assets/img/pets.png" alt="pets">
+          </div>
+          <div class="cards__title">
+            <p>Pets</p>
+          </div>
+        </div>
+        <div class="category cards__item">
+          <div class="cards__img">
+            <img src="./assets/img/toys.png" alt="toys">
+          </div>
+          <div class="cards__title">
+            <p>Toys</p>
+          </div>
+        </div>
+        <div class="category cards__item">
+          <div class="cards__img">
+            <img src="./assets/img/vegetables.png" alt="vegetables">
+          </div>
+          <div class="cards__title">
+            <p>Vegetables</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrapper">
+      <span>2020 English for Kids</span>
+      <a href="https://github.com/tatafox" class="footer__href"  target="_blank"> © tatafox</a>
+      <a href="https://rs.school/js/" class="footer__href"  target="_blank">
+        <img src="./assets/img/rs_school_js.svg" alt="rs school logo" width="100px">
+      </a>
+    </div>
+  </footer>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
