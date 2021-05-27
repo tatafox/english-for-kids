@@ -1,7 +1,3 @@
-import { cards, cardsCategory } from "/cards.js";
-import { burgerClick, burger } from "./burger.js";
-burger.addEventListener("click", burgerClick);
-
 let numberCategory = -1;
 let gameModeFlag = false;
 let newGame = true;
@@ -13,6 +9,7 @@ const cardsDom = document.querySelector(".cards"),
 const divStar = document.getElementById("star");
 
 function deleteCard() {
+  console.log(!document.querySelector(".cards__item"));
   document.querySelectorAll(".cards__item").forEach((item) => {
     item.removeEventListener("click", cardClick);
   });
@@ -38,6 +35,7 @@ function createCards(cardElem) {
   cardsDom.appendChild(elem);
   elem.onmouseout = function () {
     if (this.classList.contains("flipped")) {
+      console.log(this);
       this.classList.toggle("flipped");
     }
   };
@@ -86,8 +84,13 @@ function changeCategory(category) {
     createCategoryCards();
     menuNumber = 0;
   }
-  document.querySelector(".menu__item_active").classList.remove("menu__item_active");
-  document.querySelectorAll(".menu__item")[menuNumber].classList.add("menu__item_active");
+  document
+    .querySelector(".menu__item_active")
+    .classList.remove("menu__item_active");
+  document
+    .querySelectorAll(".menu__item")
+    [menuNumber].classList.add("menu__item_active");
+  console.log(document.querySelectorAll(".menu__item")[menuNumber]);
 }
 
 function createCategoryCards() {
@@ -184,16 +187,16 @@ function gameModeCards() {
   document.querySelector(".header").classList.add("cards__item_game");
 }
 
-function removeClass(className) {
-  document.querySelectorAll(`.${className}`).forEach((item) => {
-    item.classList.remove(className);
-  });
-}
-
 function gameModeCardsRemove() {
-  removeClass("disabled");
-  removeClass("cards__item_game");
-  removeClass("cards__item_main-game");
+  document.querySelectorAll(".disabled").forEach((item) => {
+    item.classList.remove("disabled");
+  });
+  document.querySelectorAll(".cards__item_game").forEach((item) => {
+    item.classList.remove("cards__item_game");
+  });
+  document.querySelectorAll(".cards__item_main-game").forEach((item) => {
+    item.classList.remove("cards__item_main-game");
+  });
   divStar.innerHTML = "";
 }
 
@@ -215,6 +218,7 @@ function pressStartBtn() {
       //создаем новый массив
       randomGameArray = Array.from(cards[numberCategory]);
       createRandomArray(randomGameArray);
+      console.log(randomGameArray, cards[numberCategory]);
       document.getElementById(
         "game__start-btn"
       ).innerHTML = `<img src="./assets/img/arrow.png" alt="" width=25px;>`;
