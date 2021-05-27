@@ -411,5 +411,3 @@ const cards = [
     },
   ],
 ];
-
-export { cards, cardsCategory };

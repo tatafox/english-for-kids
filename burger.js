@@ -15,4 +15,4 @@ function burgerClick(e) {
   }
 }
 
-export { burgerClick, burger };
+burger.addEventListener("click", burgerClick);
